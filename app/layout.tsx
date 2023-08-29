@@ -21,11 +21,7 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en" suppressHydrationWarning>
-        <body className={cn("bg-secondary", inter.className)}>
-          <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
-            {children}
-          </ThemeProvider>
-        </body>
+        <body className={cn("bg-secondary", inter.className)}>{children}</body>
       </html>
     </ClerkProvider>
   );
