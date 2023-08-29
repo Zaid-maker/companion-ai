@@ -1,4 +1,4 @@
-import { ClerkProvider } from "@clerk/nextjs";
+import { Navbar } from "@/components/navbar";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 
@@ -18,6 +18,7 @@ export default function RootLayout({
 }) {
   return (
     <div className="h-full">
+      <Navbar />
       <div className="hidden md:flex mt-16 h-full w-20 flex-col fixed inset-y-0">
         {/*<Sidebar />*/}
       </div>
