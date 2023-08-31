@@ -5,6 +5,8 @@ import { UserButton } from "@clerk/nextjs";
 import { Poppins } from "next/font/google";
 import Link from "next/link";
 import { ModeToggle } from "./mode-toggle";
+import { Button } from "./ui/button";
+import { Sparkle } from "lucide-react";
 
 const font = Poppins({ weight: "600", subsets: ["latin"] });
 
@@ -24,6 +26,10 @@ export const Navbar = () => {
         </Link>
       </div>
       <div className="flex items-center gap-x-3">
+        <Button>
+          Upgrade
+          <Sparkle className="h-4 w-4 fill-white text-white ml-2" />
+        </Button>
         {/*<ModeToggle />*/}
         <UserButton afterSignOutUrl="/" />
       </div>
