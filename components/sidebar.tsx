@@ -6,7 +6,12 @@ import { Home, Plus, Settings } from "lucide-react";
 import React from "react";
 
 export const Sidebar = () => {
+  const router = useRouter();
   const pathname = usePathname();
+
+  const onNavigate = (url: string) => {
+    return router.push(url);
+  };
 
   const routes = [
     {
@@ -35,6 +40,7 @@ export const Sidebar = () => {
         <div className="space-y-2">
           {routes.map((route) => (
             <div
+              onClick={() => onNavigate(route.href)}
               key={route.href}
               className={cn(
                 "text-muted-foreground text-xs group flex p-3 w-full justify-start font-medium cursor-pointer hover:text-primary/10 rounded-lg transition",
