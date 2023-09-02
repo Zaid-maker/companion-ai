@@ -1,10 +1,11 @@
 "use client";
 
+import qs from "query-string";
 import { Input } from "@/components/ui/input";
 import { useDebounce } from "@/hooks/use-debounce";
 import { Search } from "lucide-react";
 import { useRouter, useSearchParams } from "next/navigation";
-import { ChangeEventHandler, useState } from "react";
+import { ChangeEventHandler, useEffect, useState } from "react";
 
 const SearchInput = () => {
   const router = useRouter();
@@ -19,6 +20,23 @@ const SearchInput = () => {
   const onChange: ChangeEventHandler<HTMLInputElement> = (e) => {
     setValues(e.target.value);
   };
+
+  useEffect(() => {
+    const query = {
+      name: debouncedValue,
+      categoryId: categoryId,
+    };
+
+    const url = qs.stringifyUrl(
+      {
+        url: window.location.href,
+        query,
+      },
+      { skipNull: true, skipEmptyString: true }
+    );
+
+    router.push(url);
+  }, [debouncedValue, router, categoryId]);
 
   return (
     <div className="relative">
