@@ -2,6 +2,8 @@
 
 import * as z from "zod";
 import { Category, Companion } from "@prisma/client";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
 
 interface CompanionFormProps {
   initialData: Companion | null;
@@ -34,5 +36,23 @@ export const CompanionForm = ({
   initialData,
   categories,
 }: CompanionFormProps) => {
+  const form = useForm<z.infer<typeof formSchema>>({
+    resolver: zodResolver(formSchema),
+    defaultValues: initialData || {
+      name: "",
+      description: "",
+      instructions: "",
+      seed: "",
+      src: "",
+      categoryId: undefined,
+    },
+  });
+
+  const isLoading = form.formState.isSubmitting;
+
+  const onSubmit = async (values: z.infer<typeof formSchema>) => {
+    console.log(values);
+  };
+
   return <div>CompanionForm</div>;
 };
