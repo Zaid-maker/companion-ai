@@ -1,3 +1,4 @@
+import { CompanionForm } from "@/components/companion-form";
 import prismadb from "@/lib/prismadb";
 
 interface CompanionPageProps {
