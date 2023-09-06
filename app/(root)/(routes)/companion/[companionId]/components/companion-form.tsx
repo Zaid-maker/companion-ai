@@ -91,7 +91,11 @@ export const CompanionForm = ({
             render={({ field }) => (
               <FormItem className="flex flex-col items-center justify-center space-y-4 col-span-2">
                 <FormControl>
-                  <ImageUpload />
+                  <ImageUpload
+                    disabled={isLoading}
+                    onChange={field.onChange}
+                    value={field.value}
+                  />
                 </FormControl>
                 <FormMessage />
               </FormItem>
