@@ -24,6 +24,8 @@ import {
 } from "@/components/ui/select";
 import { ImageUpload } from "@/components/image-upload";
 import { Textarea } from "@/components/ui/textarea";
+import { Button } from "@/components/ui/button";
+import { Wand2 } from "lucide-react";
 
 interface CompanionFormProps {
   initialData: Companion | null;
@@ -233,6 +235,12 @@ export const CompanionForm = ({
               </FormItem>
             )}
           />
+          <div className="w-full flex justify-center">
+            <Button size="lg" disabled={isLoading}>
+              {initialData ? "Edit your companion" : "Create your companion"}
+              <Wand2 className="w-4 h-4 ml-2" />
+            </Button>
+          </div>
         </form>
       </Form>
     </div>
