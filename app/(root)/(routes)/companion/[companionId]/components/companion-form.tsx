@@ -103,7 +103,7 @@ export const CompanionForm = ({
       }
 
       toast({
-        description: "Success",
+        description: "Success.",
         duration: 3000,
       });
 
@@ -111,8 +111,8 @@ export const CompanionForm = ({
       router.push("/");
     } catch (error) {
       toast({
-        variant: "destructuve",
-        description: "Something went wrong",
+        variant: "destructive",
+        description: "Something went wrong.",
         duration: 3000,
       });
     }
