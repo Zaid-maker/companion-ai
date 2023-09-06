@@ -22,6 +22,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { ImageUpload } from "@/components/image-upload";
 
 interface CompanionFormProps {
   initialData: Companion | null;
@@ -89,7 +90,9 @@ export const CompanionForm = ({
             name="src"
             render={({ field }) => (
               <FormItem className="flex flex-col items-center justify-center space-y-4 col-span-2">
-                <FormControl></FormControl>
+                <FormControl>
+                  <ImageUpload />
+                </FormControl>
                 <FormMessage />
               </FormItem>
             )}
